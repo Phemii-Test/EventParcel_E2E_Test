@@ -1,0 +1,30 @@
+{
+     "getStartedButton" : ".text-primary.font-bold",  
+     "firstNameField" :"[placeholder='First name']",
+    "lastNameField" :"[placeholder='Last name']",
+     "emailField" :"[placeholder='Email']",
+    "mobilenumField" : "[type='tel']",
+    "passwordField" : "[placeholder='Password']",
+    "signupButton" : "[type='submit']",
+    "OTPtext" : "#otp-0",
+    "OTPfield" : "#otp-0",
+    "invalidEmailError" : ".text-red-500.text-sm",
+    "invalidMobileNumberError" : "div[class='h-14'] p",
+    "invalidPasswordError" : "div[class='mb-4 relative'] p[class='text-red-500 text-sm']",
+    "TandCtext" : "[class='text-primary font-bold']",
+    "googleSignUpButton": "body > main:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(10) > a:nth-child(1)",
+    "faceBookSignUpButton" : "body > main:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(10) > a:nth-child(2)",
+    "appleSignupButton" : "button[class='authButton']",
+
+
+
+
+    "signInEmailField" : "#login-email",
+    "signInPasswordField" : "#login-password",
+    "loginButton" : ".button_v1.mb-4",
+    "loginToastResponse": "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--success']",
+    "invalidLoginToastRespons" : "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error']"
+
+
+
+}
