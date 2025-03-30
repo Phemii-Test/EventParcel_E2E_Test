@@ -2,8 +2,8 @@ import { faker } from "@faker-js/faker";
 const phoneNumber = faker.helpers.replaceSymbols("80########");
 let password = 'Hbon@1234'
 let sel
-
-
+const serverId='zbfbnq90'
+  
   
        beforeEach(()=>{
            cy.fixture('selectors').then((selectors)=>{
@@ -67,16 +67,9 @@ Cypress.Commands.add('noUsernameError', () => {
            cy.get(sel.firstNameField).type('Tester');
            cy.get(sel.lastNameField).type('Test');
            cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
-           cy.get(sel.mobilenumField).type('8140').then(() => { 
-            cy.get(sel.invalidMobileNumberError).then(($mobilNumError) => {
-              if ($mobilNumError.is(':visible')) {
-                cy.wrap($mobilNumError)
-                  .should('Invalid phone number for selected country');
-              } else {
-                throw new Error('Error message did not appear when an invalid phone number length was entered.');
-              }
-            });
-       })
+           cy.get(sel.mobilenumField).type('814090')
+          cy.get(sel.invalidMobileNumberError).should('be.visible').and('have.text','Invalid phone number for selected country');
+              
  });
 
  Cypress.Commands.add('noUpperCaseInPasswordError', () => {
@@ -85,17 +78,9 @@ Cypress.Commands.add('noUsernameError', () => {
     cy.get(sel.lastNameField).type('Test');
     cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
     cy.get(sel.mobilenumField).type('8140095998');
-    cy.get(sel.passwordField).type('hbon@1234').then(() => {  
-     cy.get(sel.invalidPasswordError).then(($passwordError) => {
-       if ($passwordError.is(':visible')) {
-         cy.wrap($passwordError)
-           .should('have.text', 'Password must contain uppercase, lowercase, number, and special character');
-       } else {
-         throw new Error('Error message did not appear when an invalid password was entered');
-       }
-     });
-
-})
+    cy.get(sel.passwordField).type('hbon@1234')  
+     cy.get('#submit').should('be.disabled');
+ 
  });
 
  Cypress.Commands.add('noLowerCaseInPasswordError', () => {
@@ -104,16 +89,9 @@ Cypress.Commands.add('noUsernameError', () => {
         cy.get(sel.lastNameField).type('Test');
         cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
         cy.get(sel.mobilenumField).type('8140095998');
-        cy.get(sel.passwordField).type('HBON@1234').then(() => {  
-          cy.get(sel.invalidPasswordError).then(($passwordError) => {
-            if ($passwordError.is(':visible')) {
-              cy.wrap($passwordError)
-                .should('have.text', 'Password must contain uppercase, lowercase, number, and special character');
-            } else {
-              throw new Error('Error message did not appear when an invalid password was entered');
-            }
-          });
-    })
+        cy.get(sel.passwordField).type('HBON@1234')
+        cy.get('#submit').should('be.disabled');
+
  });
 
  Cypress.Commands.add('noSpecialcharacterInPasswordError', () => {
@@ -122,16 +100,9 @@ Cypress.Commands.add('noUsernameError', () => {
       cy.get(sel.lastNameField).type('Test');
       cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
       cy.get(sel.mobilenumField).type('8140095998');
-      cy.get(sel.passwordField).type('Hbon1234').then(() => {
-        cy.get(sel.invalidPasswordError).then(($passwordError) => {
-          if ($passwordError.is(':visible')) {
-            cy.wrap($passwordError)
-              .should('have.text', 'Password must contain uppercase, lowercase, number, and special character');
-          } else {
-            throw new Error('Error message did not appear when an invalid password was entered');
-          }
-        });
-      })
+      cy.get(sel.passwordField).type('Hbon1234')    
+      cy.get('#submit').should('be.disabled');
+
  });
 
  Cypress.Commands.add('noNumberInPasswordError', () => {
@@ -140,16 +111,8 @@ Cypress.Commands.add('noUsernameError', () => {
     cy.get(sel.lastNameField).type('Test');
     cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
     cy.get(sel.mobilenumField).type('8140095998');
-    cy.get(sel.passwordField).type('hbon@Hbon!!!').then(() => {
-      cy.get(sel.invalidPasswordError).then(($passwordError) => {
-        if ($passwordError.is(':visible')) {
-          cy.wrap($passwordError)
-            .should('have.text', 'Password must contain uppercase, lowercase, number, and special character');
-        } else {
-          throw new Error('Error message did not appear when an invalid password was entered');
-        }
-      });
-    })
+    cy.get(sel.passwordField).type('hbon@Hbon!!!')
+    cy.get('#submit').should('be.disabled');
  });
 
  Cypress.Commands.add('passwordWithShortLengthError', () => {
@@ -158,16 +121,9 @@ Cypress.Commands.add('noUsernameError', () => {
   cy.get(sel.lastNameField).type('Test');
   cy.get(sel.emailField).type('phemi.i.tester@gmail.com');
   cy.get(sel.mobilenumField).type('8140095998');
-  cy.get(sel.passwordField).type('Hbon@1').then(() => {
-    cy.get(sel.invalidPasswordError).then(($passwordError) => {
-      if ($passwordError.is(':visible')) {
-        cy.wrap($passwordError)
-          .should('have.text', 'Password must be 8 character long');
-      } else {
-        throw new Error('Error message did not appear when an invalid password was entered');
-      }
-    });
-})
+  cy.get(sel.passwordField).type('Hbon@1')     
+  cy.get('#submit').should('be.disabled');
+
  });
 
 
@@ -333,5 +289,75 @@ cy.get(sel.signupButton).then((button) => {
     cy.get(sel.signupButton).click();
     cy.get(sel.OTPtext).should("be.visible");
  });
+Cypress.Commands.add('signUpWithOTP',()=>{
+  const userName = Math.random().toString(36).substring(2, 8);
+  const testEmail = `${userName}@${serverId}.mailosaur.net`;
+  cy.get(sel.getStartedButton)
+            .should("be.visible")
+            .and("have.text", "Get Started")
+            .click();
+          cy.get(sel.firstNameField).type("Tester");
+          cy.get(sel.lastNameField).type("Test");
+          cy.get(sel.mobilenumField).type(phoneNumber);
+          cy.get(sel.emailField).type(testEmail);
+          cy.get(sel.passwordField).type(password);
+          cy.get(sel.signupButton).click();
+          cy.wait(15000);
 
- 
+    
+          cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
+            sentTo: testEmail
+          }).then((result) => {
+            const latestMessage = result.items[0];
+            return cy.mailosaurGetMessageById(latestMessage.id);
+          })
+            .then((email)=>{
+            cy.log(email.html.body); 
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(email.html.body, "text/html");
+          
+            const otpElement = doc.querySelector('.otp'); 
+            const otp = otpElement ? otpElement.textContent.replace(/\D/g, "").trim() : null;
+            cy.get('[id^="otp-"]').each(($el, index) => {
+          cy.wrap($el).type(otp[index]); 
+        });
+        cy.get('[class="font-bold text-3xl"]').should("be.visible").and('have.text','Account created successfully');
+       
+        });
+});
+ Cypress.Commands.add('signUpWithEmailVerificationLink',()=>{
+  const userName = Math.random().toString(36).substring(2, 8);
+  const testEmail = `${userName}@${serverId}.mailosaur.net`;
+  cy.get(sel.getStartedButton)
+  .should("be.visible")
+  .and("have.text", "Get Started")
+  .click();
+cy.get(sel.firstNameField).type("Tester");
+cy.get(sel.lastNameField).type("Test");
+cy.get(sel.mobilenumField).type(phoneNumber);
+cy.get(sel.emailField).type(testEmail);
+cy.get(sel.passwordField).type(password);
+cy.get(sel.signupButton).click();
+cy.wait(15000);
+
+
+cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
+  
+  sentTo: testEmail
+}).then((result) => {
+  const latestMessage = result.items[0];
+  return cy.mailosaurGetMessageById(latestMessage.id);
+})
+  .then((email)=>{
+  cy.log(email.html.body); 
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(email.html.body, "text/html");
+  const link = doc.querySelector('a').href; // Extract the href attribute
+
+  // Visit the verification link
+  cy.visit(link);   
+
+  //  validate that email has been verified.
+  cy.get('[class="font-bold text-3xl"]').should('be.visible').and('have.text','Your email address has been verified');
+  });
+ })

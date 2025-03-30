@@ -39,6 +39,8 @@ describe("validate the invalid sign up functionality", () => {
   it("validates password functionality by adding password with character less than 8", () => {
     cy.passwordWithShortLengthError();
   });
+
+
 });
 
 /*

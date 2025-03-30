@@ -36,40 +36,10 @@ describe("validate the valid sign up functionality", () => {
   it("validates that the proceed button is enabled when all info is filled", () => {
     cy.successfulSignUpForm();
   });
-  ``;
-  /* 
-    it ('validates that the proceed button is enabled when all info is filled',()=>{
-        //click the get started button
-        cy.get(getStartedButton).should('be.visible').and('have.text','Get Started').click();
-        cy.get(firstNameField).type('Tester');
-        cy.get(lastNameField).type('Test');
-        cy.get(emailField).type(emailAddress);
-        cy.get(mobilenumField).type('814737677');
-        cy.get(passwordField).type(password);
-        cy.get(signupButton).click();
-
-        cy.mailosaurListMessages(serverID)
-  .then((result) => {
-    const latestMessage = result.items[0];
-
-    return cy.mailosaurGetMessageById(latestMessage.id)
-     .then((message) => {
-    const emailBody = message.html.body; // Extract the email body
-    const otpCode = emailBody.match(/\b\d{6}\b/); // Extract the 6-digit OTP from the email
-    cy.log(`Extracted OTP: ${otpCode}`);
-  const otpDigits = otpCode.split(""); 
-  otpDigits.forEach((digit, index) => {
-    cy.get(`#otp-${index}`).type(digit); 
-  });
-  });  
-
-/*        cy.mailslurp().then(Email => Email.waitForLatestEmail(inboxId, 60000, true))
-        .then(email => {
-            emailBody = email.body
-            const extractor = new DOMParser()
-            const doc = extractor.parseFromString(emailBody, "text/html")
-            const otp = doc.querySelector('strong').textContent
-            cy.get(OTPfield).type(otp)
-        });
-        */
+  it('Validate signup with OTP',()=>{
+    cy.signUpWithOTP();
+  })
+  it('Validate signup with email link verification',()=>{
+    cy.signUpWithEmailVerificationLink();
+});
 });
