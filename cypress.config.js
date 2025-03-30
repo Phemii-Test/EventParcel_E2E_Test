@@ -26,6 +26,7 @@ module.exports = defineConfig({
       // "MAILSLURP_API_KEY":""
       MAILOSAUR_API_KEY: "Qt6ZbfcMu9NtSjXhpmp6cIgjv3bk5MCp",
       MAILOSAUR_SERVER_ID: "zbfbnq90",
+      MAILOSAUR_SERVER_id: "7bzlaj8a",
    },
     setupNodeEvents(on, config) {
      

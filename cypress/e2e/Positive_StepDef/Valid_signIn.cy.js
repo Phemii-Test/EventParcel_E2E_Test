@@ -30,7 +30,7 @@ describe('validate the sign in functionality',()=>{
     })
 
     it('validate a successful sign in process',()=>{
-        cy.get(sel.signInEmailField).type('phemii.tester@gmail.com');
+        cy.get(sel.signInEmailField).type('phemii.teste.r@gmail.com');
         cy.get(sel.signInPasswordField).type(password);
         cy.get(sel.loginButton).should('be.visible').click();
         cy.get(sel.loginToastResponse,{timeout:10000}).should('be.visible').and('have.text','Congratulations. You are in!')
