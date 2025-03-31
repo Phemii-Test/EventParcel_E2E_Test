@@ -32,7 +32,7 @@
     "eventDescription" : "#description",
     "eventDate" : "#eventDate",
     "calendarForwardButton" : ".react-datepicker__navigation-icon.react-datepicker__navigation-icon--next",
-    "datePicker" : "[class='react-datepicker__day react-datepicker__day--010']",
+    "datePicker" : "[class='react-datepicker__day react-datepicker__day--010 react-datepicker__day--weekend']",
     "eventTime" : "#eventTime",
     "eventLocation" : "#location",
     "numberOfGroups" : "[id='numberOfGroups']",
@@ -42,6 +42,7 @@
     "invalidErrorResponse": ".text-red-500.text-sm.mt-1",
     "disabledContinueButton" : "button[class='bg-primary text-white py-3 px-8 rounded-[12px] transition flex items-center justify-center font-extrabold font-manrope opacity-50 cursor-not-allowed']",
     "coverImageErrorResp" : "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error']",
+    "continueToGroupButton" : "button[class='font-bold']",
 
 
     "addCohostOption" : "button[class='p-3 border border-[#111827] rounded-[12px] font-manrope font-extrabold text-base text-[#111827] w-full']",
@@ -53,6 +54,7 @@
     "cohostConfirmationBody" : "p[class='font-medium text-[#718096]']",
     "ContinueButton" : "button[class='button_v1 !font-bold']",
     "mainContinueButton" : "button[type='submit']",
+
 
     "groupHeader" : "span[class='flex justify-start font-general font-medium text-sm text-[#718096]']",
     "groupName" : "#groupName",
@@ -69,6 +71,9 @@
     "editGroup" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
     "deleteGroupButton" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)",
     "confirmDeleteGroup" : "button[class='bg-primary text-white py-2 px-4 rounded-[12px] hover:bg-red-800 transition flex items-center justify-center']",
+    "invalidGroupErrorResponse" : ".text-xs.text-red-500",
+    "secondNairaOption" : "body div div div div div div div div button:nth-child(1)",
+    "secondDollarOption" : "body div div div div div div div div button:nth-child(2)",
 
 
 
@@ -89,6 +94,8 @@
     "packageCreatedPrice2" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)",
     "editPackage" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > img:nth-child(1)",
     "editPackagePrice" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > input:nth-child(2)",
+    "adhocAddPackageBtn": "body > div:nth-child(1) > div:nth-child(2) > main:nth-child(2) > main:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
+    "noPackageImageErrorResp" : "[class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--error Toastify__toast--close-on-click']",
 
 
     "continue" : "#continue",
@@ -97,6 +104,7 @@
     "paymentDetailsHeader" : "#paymentDetailsHeader",
     "paymentDetailsDescription" : "#paymentDetailsDesc",
     "dollarPayoutHeader" : "p[class='font-general font-semibold text-[#111827] text-xl mb-5']",
+    "nairaPayoutHeader": "p[class='font-general font-semibold text-[#111827] text-xl mb-5']",
     "accountNumberField" : "[id='dollarAccount.usAccountNumber']",
     "accountNameField" : "[id='dollarAccount.usAccountName']",
     "selectBankField" : "div[role='combobox']",
