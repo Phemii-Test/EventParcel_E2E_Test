@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import './custom-commands/signup_withemail.actions.cy'
+import './custom-commands/signIn.actions.cy'
+import './custom-commands/eventCreation.actions.cy'
 import 'cypress-mailslurp'
 import "cypress-mailosaur";
 import '@faker-js/faker'
