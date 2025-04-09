@@ -25,6 +25,9 @@
     "loginToastResponse": "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--success']",
     "invalidLoginToastRespons" : "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error']",
 
+    "eventCreationButton" : "body > div:nth-child(1) > aside:nth-child(1) > div:nth-child(1) > div:nth-child(3) > nav:nth-child(2) > button:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
+    "createNewEventBtn" : "span[class='font-general font-medium text-base text-[#751423] capitalize']",
+    "noEventCreatNewBtn" : "class='px-6 py-3 bg-[#751423] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#5e101b] transition duration-300']",
     "eventCreationHeader" : "h3[class='text-2xl sm:text-[32px] sm:font-general font-bold text-[#111827]']",
     "eventCreationBodyText": "p[class='text-lg sm:font-general font-medium text-[#718096] dark:text-gray-400 sm:text-xl']",
     "eventName" : "#eventName",
@@ -43,6 +46,8 @@
     "disabledContinueButton" : "button[class='bg-primary text-white py-3 px-8 rounded-[12px] transition flex items-center justify-center font-extrabold font-manrope opacity-50 cursor-not-allowed']",
     "coverImageErrorResp" : "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error']",
     "continueToGroupButton" : "button[class='font-bold']",
+    "eventDashboardHeader" : "[class='capitalize text-2xl md:text-4xl text-[#111827] font-bold font-general']",
+    "createFirstEvent" : "button[class='px-6 py-3 bg-[#751423] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#5e101b] transition duration-300']",
 
 
     "addCohostOption" : "button[class='p-3 border border-[#111827] rounded-[12px] font-manrope font-extrabold text-base text-[#111827] w-full']",
@@ -54,6 +59,11 @@
     "cohostConfirmationBody" : "p[class='font-medium text-[#718096]']",
     "ContinueButton" : "button[class='button_v1 !font-bold']",
     "mainContinueButton" : "button[type='submit']",
+    "cohost_subHeaderText" : ".mr-2",
+    "cohostDetails_description" : "#coHostDes",
+    "statusTitle" : "#statusTitle",
+    "statusMessage" : "#statusMessage",
+    "addNewCohost" : "img[alt='plus']",
 
 
     "groupHeader" : "span[class='flex justify-start font-general font-medium text-sm text-[#718096]']",
@@ -67,6 +77,7 @@
     "addNew" : "span[class='font-general font-semibold text-base text-[#751423]']",
     "generalOption" : "button:nth-child(2) img:nth-child(1)",
     "homeDeliveryOption" : "#HomeDelivery",
+    "selfManagedDeliveryOption" : "#selfManaged",
     "platformDeliveryOption" : "#platformDelivery",
     "editGroup" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
     "deleteGroupButton" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)",
@@ -87,6 +98,8 @@
     "packagePrice" : "#packagePrice",
     "packageQuantity" : "#packageQuantity",
     "pickupOption" : "#pickUp",
+    
+    
     "createPackageButton" : "[class='w-[147px] h-[48px] px-4 py-2 text-white whitespace-nowrap rounded-xl bg-[#751423]']",
     "packageTitle" : "#packageHeader",
     "packageCreatedPrice" : "#packagePrice",
@@ -105,14 +118,17 @@
     "paymentDetailsDescription" : "#paymentDetailsDesc",
     "dollarPayoutHeader" : "p[class='font-general font-semibold text-[#111827] text-xl mb-5']",
     "nairaPayoutHeader": "p[class='font-general font-semibold text-[#111827] text-xl mb-5']",
-    "accountNumberField" : "[id='dollarAccount.usAccountNumber']",
+    "accountNumberField" : "input[id='dollarAccount.usAccountNumber']",
+    "nairaAccountNumberField" : "input[id='nairaAccount.accountNumber']",
     "accountNameField" : "[id='dollarAccount.usAccountName']",
     "selectBankField" : "div[role='combobox']",
-    "equitableBank" : "body > div:nth-child(1) > section:nth-child(3) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(5) > span:nth-child(1)",
+    "USbankOptions" : "[class='font-medium']",
     "routingNumberField" : "[id='dollarAccount.routingNumber']",
     "paymentDeadlineHeader" : "#payment_deadlineHeader",
     "paymentDeadlineDescription" : "#payment_deadlineDesc",
     "paymentDeadlineDate" : "[id='paymentDate']",
+    "accountNumberError" : "#accountNumberError",
+    "routingNumberError" : "#routingNumberError",
 
 
     "deliveryHeader" : "#deliveryDetailsHeader",
@@ -121,6 +137,7 @@
     "contactNumber" : "[placeholder='1 (702) 123-4567']",
     "pickupLocation" : "#pickupLocation",
     "deliveryDate" : "#deliveryDate"
+
    
 
 
