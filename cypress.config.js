@@ -1,6 +1,8 @@
 const { defineConfig } = require("cypress");
 const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+// const MailosaurClient = require('mailosaur');
+
 
 async function setupNodeEvents(on, config) {
 
@@ -13,6 +15,7 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
   e2e: {
+
     baseUrl: "https://event-parcel.vercel.app/",
     watchForFileChanges: false,
     defaultCommandTimeout: 40000,
@@ -23,13 +26,19 @@ module.exports = defineConfig({
     
   
     env: {
-      // "MAILSLURP_API_KEY":""
+      "MAILSLURP_API_KEY":"",
       MAILOSAUR_API_KEY: "Qt6ZbfcMu9NtSjXhpmp6cIgjv3bk5MCp",
       MAILOSAUR_SERVER_ID: "zbfbnq90",
       MAILOSAUR_SERVER_id: "7bzlaj8a",
    },
     setupNodeEvents(on, config) {
-     
+      // const mailosaur = new MailosaurClient(config.env.MAILOSAUR_API_KEY);
+      // on('task', {
+      //   async getLatestMailosaurEmail({ serverId, sentTo }) {
+      //     const message = await mailosaur.messages.get(serverId, { sentTo }, { timeout: 20000 });
+      //     return message;
+      //   }
+      // });
     },
     reporter: 'mochawesome',
   reporterOptions: {

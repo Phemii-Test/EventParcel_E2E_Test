@@ -3,7 +3,7 @@ describe("validate the group and packages edge cases", () => {
   let password = "Hbon@1234";
 
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit('/');
     cy.fixture("selectors").then((selectors) => {
       sel = selectors;
     });

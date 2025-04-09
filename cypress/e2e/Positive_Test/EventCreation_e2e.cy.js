@@ -166,7 +166,7 @@ it('add payment details',()=>{
     cy.get(sel.accountNameField).type('Olufemi Tester');
     cy.get(sel.selectBankField).click();
     // select equitable bank
-    cy.get(sel.equitableBank).click();
+    cy.get(sel.USbankOptions).eq(3).click();
     cy.get(sel.routingNumberField).type('304971932');
 
     // set payment deadline

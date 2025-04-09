@@ -290,8 +290,8 @@ cy.get(sel.signupButton).then((button) => {
     cy.get(sel.OTPtext).should("be.visible");
  });
 Cypress.Commands.add('signUpWithOTP',()=>{
-  const userName = Math.random().toString(36).substring(2, 8);
-  const testEmail = `${userName}@${serverId}.mailosaur.net`;
+  const hostName = Math.random().toString(36).substring(2, 8);
+  const TestEmail = `${hostName}@${serverId}.mailosaur.net`;
   cy.get(sel.getStartedButton)
             .should("be.visible")
             .and("have.text", "Get Started")
@@ -299,14 +299,14 @@ Cypress.Commands.add('signUpWithOTP',()=>{
           cy.get(sel.firstNameField).type("Tester");
           cy.get(sel.lastNameField).type("Test");
           cy.get(sel.mobilenumField).type(phoneNumber);
-          cy.get(sel.emailField).type(testEmail);
+          cy.get(sel.emailField).type(TestEmail);
           cy.get(sel.passwordField).type(password);
           cy.get(sel.signupButton).click();
           cy.wait(15000);
 
     
           cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
-            sentTo: testEmail
+            sentTo: TestEmail
           }).then((result) => {
             const latestMessage = result.items[0];
             return cy.mailosaurGetMessageById(latestMessage.id);
@@ -322,7 +322,9 @@ Cypress.Commands.add('signUpWithOTP',()=>{
           cy.wrap($el).type(otp[index]); 
         });
         cy.get('[class="font-bold text-3xl"]').should("be.visible").and('have.text','Account created successfully');
-       
+        cy.get(sel.signInEmailField).clear().type(TestEmail);
+        cy.get(sel.signInPasswordField).type(password);
+        cy.get(sel.loginButton).should('be.visible').click();
         });
 });
  Cypress.Commands.add('signUpWithEmailVerificationLink',()=>{
