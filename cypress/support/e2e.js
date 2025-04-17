@@ -26,9 +26,9 @@ before(() => {
     cy.visit('/')
     cy.clearLocalStorage();
     cy.reload();
-cy.on('uncaught:exception', () => {
-    return false
-  })
+    cy.on('uncaught:exception', () => {
+      return false
+    })
 })
 
 beforeEach(()=>{
