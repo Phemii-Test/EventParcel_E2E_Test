@@ -11,11 +11,10 @@ let password = 'Hbon@1234'
 it('successfully created an event',()=>{
 
     // login 
-    cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
-    cy.get(sel.signInPasswordField).type(password);
-    cy.get(sel.loginButton).should('be.visible').click();
-
+    cy.successfulLogin();
     // Create event
+    cy.get(sel.eventCreationButton).click();
+    cy.get(sel.createNewEventBtn).click();
     cy.get(sel.eventCreationHeader).should('be.visible').and('have.text','Tell us about your event');
     cy.get(sel.eventCreationBodyText).should('be.visible').and('have.text',"We'll help you get started based on your responses")
     cy.get(sel.eventName).type('OlaOluwa2024')

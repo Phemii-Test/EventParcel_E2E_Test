@@ -48,6 +48,9 @@
     "continueToGroupButton" : "button[class='font-bold']",
     "eventDashboardHeader" : "[class='capitalize text-2xl md:text-4xl text-[#111827] font-bold font-general']",
     "createFirstEvent" : "button[class='px-6 py-3 bg-[#751423] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#5e101b] transition duration-300']",
+    "createdEventTitle" : "[class='text-xl font-bold text-gray-900 capitalize']",
+    "menuOption" : ".text-gray-600[stroke='currentColor']",
+    "editEvent" :"body > div:nth-child(1) > div:nth-child(2) > main:nth-child(2) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
 
 
     "addCohostOption" : "button[class='p-3 border border-[#111827] rounded-[12px] font-manrope font-extrabold text-base text-[#111827] w-full']",
@@ -136,9 +139,33 @@
     "contactName" : "#contactName",
     "contactNumber" : "[placeholder='1 (702) 123-4567']",
     "pickupLocation" : "#pickupLocation",
-    "deliveryDate" : "#deliveryDate"
+    "deliveryDate" : "#deliveryDate",
 
-   
+
+    "discountTab" : "[class='w-5 h-5']",
+    "createDiscountButton" : "button[class='flex flex-col items-center justify-center border border-dashed border-[#11182752] rounded-xl p-6 bg-[#FFFFFF66] transition']",
+    "discountHeaderText" : "h2[class='font-general text-2xl font-bold text-[#111827]']",
+    "discountBodyText" : "p[class='text-sm font-medium text-[#718096] w-[343px] h-[44px]']",
+    "discountTitleHeader" : "#discount-title",
+    "discountTitleDesc" : "#discount-description",
+    "eventDropdown" : "div[id='event-dropdown-trigger'] svg",
+    "eventList" : "[class='px-3 py-2 cursor-pointer hover:bg-gray-100 text-sm']",
+    "discountTitle" : "#discount-title-input",
+    "discountTypeDropdown" : ".lucide.lucide-chevron-down.w-5.h-5.text-gray-500.transition-transform",
+    "dollarDiscountOption" : "div[id='symbol-option-$']",
+    "percentageDiscountOption" : "div[id='symbol-option-%']",
+    "discountValue" : "#discount-value-input",
+    "discountCodeField" : "#discount-code-input",
+    "submitDiscountButton" : "#submit-discount-button",
+    "createdDiscountTitle" : "[class='text-xl font-semibold text-[#111827]']",
+    "createdDiscountAmount" : "[class='font-bold text-base']",
+    "createdDiscountCode" : "[class='text-base font-semibold text-[#111827]']",
+    "discountMenuButton" : "[class='text-[#A0AEC0] text-2xl font-bold']",
+    "discountStatus" : "div[id='67feaca302447dd64d99f319'] div[class='flex items-center justify-between'] span:nth-child(1)",
+    "disableDiscountButton" : "div[class='flex flex-col flex-grow'] button:nth-child(2) div:nth-child(1) span:nth-child(1)",
+    "editDiscountButton" : "div[class='grid gap-4'] button:nth-child(1)",
+    "editDiscountTitle" : "input[placeholder='Enter discount title']",
+    "editDiscountValue" : "input[placeholder='Add discount value']"
 
 
 }
