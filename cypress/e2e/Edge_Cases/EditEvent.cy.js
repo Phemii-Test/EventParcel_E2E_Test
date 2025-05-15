@@ -18,7 +18,7 @@ describe('it validates the requirements for event update',()=>{
         cy.get(sel.createdEventTitle).eq(0).click();
         cy.wait(3000)
         cy.get(sel.menuOption).click();
-        cy.get(sel.editEvent).click();
+        cy.findByText(sel.editEvent).click();
         cy.get(sel.eventName).clear().type('OluBola2026',{force:true});
         cy.get(sel.createEventButton).click()
         // cy.get(sel.createdEventTitle)

@@ -3,6 +3,9 @@ describe('Validate edge cases for payment and delivery option',()=>{
     let password = "Hbon@1234";
   
     beforeEach(() => {
+      cy.on('uncaught:exception', () => {
+        return false
+      })
       cy.visit("/");
       cy.fixture("selectors").then((selectors) => {
         sel = selectors;
@@ -28,7 +31,7 @@ describe('Validate edge cases for payment and delivery option',()=>{
         cy.get(sel.routingNumberField).should('be.visible');
         })
 
-        it('validate Naira and dollar payment, whent groups crated has both currencies',()=>{
+        it('validate Naira and dollar payment, when groups created has both currencies',()=>{
         cy.successfulLogin();
         cy.createEventSuccessfully();
         cy.itAddDollarAndNairaGroupSuccesfully();

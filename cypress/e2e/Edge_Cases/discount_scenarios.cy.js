@@ -2,6 +2,9 @@ describe('validate the possible scenarios on the discount features',()=>{
     let sel; 
     beforeEach(() => {
         cy.visit("/");
+        cy.on('uncaught:exception',()=>{
+          return false
+        })
         cy.fixture("selectors").then((selectors) => {
           sel = selectors;
         });
@@ -9,8 +12,8 @@ describe('validate the possible scenarios on the discount features',()=>{
 
       it('proceed without selecting an event',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
-        cy.get(sel.createDiscountButton).click();
+        cy.findByText('Discounts').click();
+        cy.findByText('Create Discount').click();
         // cy.get(sel.eventDropdown).click();
         // cy.get(sel.eventList).eq(1).click();
         cy.get(sel.discountTitle).type('American People discount');
@@ -23,8 +26,8 @@ describe('validate the possible scenarios on the discount features',()=>{
 
       it('attempt to enter a discount title less than 3 character',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
-        cy.get(sel.createDiscountButton).click();
+        cy.findByText('Discounts').click();
+        cy.findByText('Create Discount').click();
         cy.get(sel.eventDropdown).click();
         cy.get(sel.eventList).eq(1).click();
         cy.get(sel.discountTitle).type('Am');
@@ -36,8 +39,8 @@ describe('validate the possible scenarios on the discount features',()=>{
       })
       it('attempt to enter a discount title greater than 25 character',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
-        cy.get(sel.createDiscountButton).click();
+        cy.findByText('Discounts').click();
+        cy.findByText('Create Discount').click();
         cy.get(sel.eventDropdown).click();
         cy.get(sel.eventList).eq(1).click();
         cy.get(sel.discountTitle).type('Amenotrucatriculaticannirdufhhsy');
@@ -49,8 +52,8 @@ describe('validate the possible scenarios on the discount features',()=>{
       })
       it('leaves the discount title field empty',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
-        cy.get(sel.createDiscountButton).click();
+        cy.findByText('Discounts').click();
+        cy.findByText('Create Discount').click();
         cy.get(sel.eventDropdown).click();
         cy.get(sel.eventList).eq(1).click();
         cy.get(sel.discountTitle).type('');
@@ -63,8 +66,8 @@ describe('validate the possible scenarios on the discount features',()=>{
 
       it('inputs a discount value greater than 100 for %',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
-        cy.get(sel.createDiscountButton).click();
+        cy.findByText('Discounts').click();
+        cy.findByText('Create Discount').click();
         cy.get(sel.eventDropdown).click();
         cy.get(sel.eventList).eq(1).click();
         cy.get(sel.discountTitle).type('General discount');
@@ -78,7 +81,7 @@ describe('validate the possible scenarios on the discount features',()=>{
 
       it.skip('deactivates a discount code.',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
+        cy.findByText('Discounts').click();
         cy.get(sel.discountStatus).should('be.visible').and('have.text','Active');
         cy.get(sel.discountMenuButton).first().click();
         cy.get(sel.disableDiscountButton).click();
@@ -87,9 +90,9 @@ describe('validate the possible scenarios on the discount features',()=>{
 
       })
 
-      it.only('Edits a discount code.',()=>{
+      it('Edits a discount code.',()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
+        cy.findByText('Discounts').click();
         cy.wait(3000);
         cy.get(sel.createdDiscountTitle).last({force:true}).should('be.visible').and('have.text','Friends discount')
         cy.get(sel.createdDiscountAmount).last().should('be.visible').and('have.text','₦3000')

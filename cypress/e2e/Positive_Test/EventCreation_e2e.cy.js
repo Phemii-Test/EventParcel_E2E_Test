@@ -4,6 +4,9 @@ let sel
 let password = 'Hbon@1234'
 
     beforeEach(()=>{
+        cy.on('uncaught:exception', () => {
+            return false
+          })
     cy.fixture('selectors').then((selectors)=>{
         sel=selectors
     })

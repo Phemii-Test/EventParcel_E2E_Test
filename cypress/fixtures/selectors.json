@@ -25,7 +25,7 @@
     "loginToastResponse": "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--success']",
     "invalidLoginToastRespons" : "[class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error']",
 
-    "eventCreationButton" : "body > div:nth-child(1) > aside:nth-child(1) > div:nth-child(1) > div:nth-child(3) > nav:nth-child(2) > button:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
+    "eventCreationButton" : "div[class='mb-4'] button:nth-child(2)",
     "createNewEventBtn" : "span[class='font-general font-medium text-base text-[#751423] capitalize']",
     "noEventCreatNewBtn" : "class='px-6 py-3 bg-[#751423] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#5e101b] transition duration-300']",
     "eventCreationHeader" : "h3[class='text-2xl sm:text-[32px] sm:font-general font-bold text-[#111827]']",
@@ -35,7 +35,7 @@
     "eventDescription" : "#description",
     "eventDate" : "#eventDate",
     "calendarForwardButton" : ".react-datepicker__navigation-icon.react-datepicker__navigation-icon--next",
-    "datePicker" : "[class='react-datepicker__day react-datepicker__day--010 react-datepicker__day--weekend']",
+    "datePicker" : "[class='react-datepicker__day react-datepicker__day--030']",
     "eventTime" : "#eventTime",
     "eventLocation" : "#location",
     "numberOfGroups" : "[id='numberOfGroups']",
@@ -50,8 +50,8 @@
     "createFirstEvent" : "button[class='px-6 py-3 bg-[#751423] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#5e101b] transition duration-300']",
     "createdEventTitle" : "[class='text-xl font-bold text-gray-900 capitalize']",
     "menuOption" : ".text-gray-600[stroke='currentColor']",
-    "editEvent" :"body > div:nth-child(1) > div:nth-child(2) > main:nth-child(2) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
-
+    "editEvent" :"Edit Event",
+    "eventMenuButton" : "[class='text-gray-600']",
 
     "addCohostOption" : "button[class='p-3 border border-[#111827] rounded-[12px] font-manrope font-extrabold text-base text-[#111827] w-full']",
     "cohostLastName" : "#lastName",
@@ -88,8 +88,8 @@
     "invalidGroupErrorResponse" : ".text-xs.text-red-500",
     "secondNairaOption" : "body div div div div div div div div button:nth-child(1)",
     "secondDollarOption" : "body div div div div div div div div button:nth-child(2)",
-
-
+    "groupMenuButton" : ".text-gray-500.cursor-pointer",
+    "GroupCard" : "[class='w-[320px] h-auto space-y-6 bg-[#FFFFFF] pt-4 p-8 rounded-3xl']",
 
     "createPackage" : "#createPackage",
     "packageHeader" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
@@ -112,7 +112,7 @@
     "editPackagePrice" : "body > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > input:nth-child(2)",
     "adhocAddPackageBtn": "body > div:nth-child(1) > div:nth-child(2) > main:nth-child(2) > main:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
     "noPackageImageErrorResp" : "[class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--error Toastify__toast--close-on-click']",
-
+    "selectBoxDropdown" : "[class='w-4 h-4 text-gray-500']",
 
     "continue" : "#continue",
     "paymentDeliveryHeader" : "#payment_deliveryHeader",
@@ -165,7 +165,18 @@
     "disableDiscountButton" : "div[class='flex flex-col flex-grow'] button:nth-child(2) div:nth-child(1) span:nth-child(1)",
     "editDiscountButton" : "div[class='grid gap-4'] button:nth-child(1)",
     "editDiscountTitle" : "input[placeholder='Enter discount title']",
-    "editDiscountValue" : "input[placeholder='Add discount value']"
+    "editDiscountValue" : "input[placeholder='Add discount value']",
+
+    "ContinueToImportButton" : "button[class='bg-primary text-white py-3 px-8 rounded-[12px] hover:bg-red-800 transition flex items-center justify-center font-extrabold font-manrope ']",
+    "selectContact" : "#checkbox-1",
+
+    "totalOrderValue" : "#stat-count-0",
+    "totalInviteValue" : "#stat-count-1",
+    "totalDeliveredValue" : "#stat-count-2",
+    "PendingOrderValue" : "#stat-count-3",
+    "OrderTitle" : "[class='font-semibold text-sm text-[#111827]']"
+
+
 
 
 }
