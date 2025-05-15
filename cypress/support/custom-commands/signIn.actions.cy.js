@@ -10,7 +10,7 @@ let sel
        })
 
  Cypress.Commands.add('successfulLogin', () => { 
-    cy.get(sel.signInEmailField).clear().type('phemii.t.ester@gmail.com');
+    cy.get(sel.signInEmailField).clear().type('phemii.tester@gmail.com');
     cy.get(sel.signInPasswordField).type(password);
     cy.get(sel.loginButton).should('be.visible').click();
  })

@@ -363,3 +363,23 @@ cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
   cy.get('[class="font-bold text-3xl"]').should('be.visible').and('have.text','Your email address has been verified');
   });
  })
+
+ Cypress.Commands.add('signupWithUseddOTP', () => {
+  //click the get started button
+  cy.get(sel.getStartedButton)
+    .should("be.visible")
+    .and("have.text", "Get Started")
+    .click();
+  cy.get(sel.firstNameField).type("Tester");
+  cy.get(sel.lastNameField).type("Test");
+  cy.get(sel.mobilenumField).type(phoneNumber);
+  cy.get(sel.emailField).type(faker.internet.email());
+  cy.get(sel.passwordField).type(password);
+  cy.get(sel.signupButton).click();
+  cy.get(sel.OTPtext).should("be.visible");
+  const otp = "413738"
+            cy.get('[id^="otp-"]').each(($el, index) => {
+          cy.wrap($el).type(otp[index]); 
+            })
+  cy.get(sel.invalidLoginToastRespons).should('be.visible').and('have.text','Invalid OTP. You have 2 attempts left.')
+});

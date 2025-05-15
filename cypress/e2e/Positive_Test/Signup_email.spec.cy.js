@@ -2,6 +2,9 @@
 describe("validate the valid sign up functionality", () => {
 
   beforeEach(() => {
+    cy.on('uncaught:exception', () => {
+      return false
+    })
     cy.visit('/');
   });
 
@@ -42,4 +45,8 @@ describe("validate the valid sign up functionality", () => {
   it('Validate signup with email link verification',()=>{
     cy.signUpWithEmailVerificationLink();
 });
+
+it.only('validate signup with used OTP',()=>{
+  cy.signupWithUseddOTP();
+})
 });

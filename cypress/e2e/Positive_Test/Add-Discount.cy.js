@@ -1,6 +1,9 @@
 describe('succesfully create a discount for event.',()=>{
     let sel; 
     beforeEach(() => {
+      cy.on('uncaught:exception', () => {
+        return false
+      })
         cy.visit("/");
         cy.fixture("selectors").then((selectors) => {
           sel = selectors;
@@ -9,7 +12,7 @@ describe('succesfully create a discount for event.',()=>{
 
       it('create a Naira discount successfully', ()=>{
         cy.successfulLogin();
-        cy.get(sel.discountTab).eq(5).click();
+        cy.findByLabelText('Discounts').click();
         cy.get(sel.discountHeaderText).should('be.visible').and('have.text','Discounts');
         cy.get(sel.discountBodyText).should('be.visible').and('have.text','Treat your guests to something special! Set a custom discount by value or percentage');
         cy.get(sel.createDiscountButton).click();

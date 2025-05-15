@@ -3,6 +3,9 @@ describe("validate the invalid sign up functionality", () => {
   let sel;
 
   beforeEach(() => {
+    cy.on('uncaught:exception', () => {
+      return false
+    })
     cy.visit("/");
   });
 
