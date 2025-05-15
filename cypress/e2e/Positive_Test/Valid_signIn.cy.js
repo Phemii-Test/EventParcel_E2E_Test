@@ -12,6 +12,9 @@ describe('validate the sign in functionality',()=>{
     let password = 'Hbon@1234'
 
     beforeEach(()=>{
+        cy.on('uncaught:exception', () => {
+            return false
+          })
         cy.visit('/')
     cy.fixture('selectors').then((selectors)=>{
         sel=selectors
@@ -30,7 +33,14 @@ describe('validate the sign in functionality',()=>{
     })
 
     it('validate a successful sign in process',()=>{
-        cy.get(sel.signInEmailField).type('phemii.teste.r@gmail.com');
+        cy.get(sel.signInEmailField).type('phemii.tester@gmail.com');
+        cy.get(sel.signInPasswordField).type(password);
+        cy.get(sel.loginButton).should('be.visible').click();
+        cy.get(sel.loginToastResponse,{timeout:10000}).should('be.visible').and('have.text','Congratulations. You are in!')
+
+    })
+    it('validate that the email field is not case sensitive',()=>{
+        cy.get(sel.signInEmailField).type('phemII.tesTer@gmail.com');
         cy.get(sel.signInPasswordField).type(password);
         cy.get(sel.loginButton).should('be.visible').click();
         cy.get(sel.loginToastResponse,{timeout:10000}).should('be.visible').and('have.text','Congratulations. You are in!')

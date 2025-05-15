@@ -104,7 +104,10 @@ Cypress.Commands.add("addPickupPackageSuccessfully", () => {
   cy.get(sel.packageQuantity).type("15");
   // select pickup
   cy.get(sel.pickupOption).click();
-  cy.get(sel.adhocAddPackageBtn).click();
+  cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Medium Box').click();
+    cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
 });
 
 Cypress.Commands.add("addDollarPaymentDetails", () => {
@@ -140,7 +143,10 @@ Cypress.Commands.add("addPlatformDeliveryPackageSuccessfully", () => {
   // select pickup
   cy.get(sel.homeDeliveryOption).click();
   cy.get(sel.platformDeliveryOption).click();
-  cy.get(sel.adhocAddPackageBtn).click();
+  cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Medium Box').click();
+    cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
 });
 
 Cypress.Commands.add("addSelfDeliveryPackageSuccessfully", () => {
@@ -153,7 +159,10 @@ Cypress.Commands.add("addSelfDeliveryPackageSuccessfully", () => {
   // select pickup
   cy.get(sel.homeDeliveryOption).click();
   cy.get(sel.selfManagedDeliveryOption).click();
-  cy.get(sel.adhocAddPackageBtn).click();
+  cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Medium Box').click();
+    cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
 });
 
 Cypress.Commands.add("addCohostSuccessfully", () => {
@@ -371,3 +380,14 @@ Cypress.Commands.add("verifySecondHostEmail", () => {
         });
     });
 });
+Cypress.Commands.add("addPickupDetails",()=>{
+  cy.get(sel.deliveryHeader).should('be.visible').and ('have.text','Pickup Details');
+    cy.get(sel.deliveryDescription).should('be.visible').and ('have.text','Add pickup contact details and when you want to start the delivery');
+    cy.get(sel.contactName).type('Olayemi Ibijoke');
+    cy.get(sel.contactNumber).type('8140095998');
+    cy.get(sel.pickupLocation).type('6, Jonathan Gimba Lane, Lagos.');
+    cy.get(sel.deliveryDate).click();
+    cy.get(sel.calendarForwardButton).click();
+    cy.get(sel.datePicker).click();
+    cy.get(sel.mainContinueButton).click();
+})

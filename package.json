@@ -12,6 +12,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@faker-js/faker": "^9.5.0",
+    "@testing-library/cypress": "^10.0.3",
     "cypress": "^14.2.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-mailosaur": "^2.17.0",

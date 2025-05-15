@@ -22,6 +22,8 @@ import 'cypress-mailslurp'
 import "cypress-mailosaur";
 import '@faker-js/faker'
 import 'cypress-file-upload';
+import '@testing-library/cypress/add-commands';
+
 before(() => {
     cy.visit('/')
     cy.clearLocalStorage();

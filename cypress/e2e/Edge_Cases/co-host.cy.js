@@ -55,7 +55,7 @@ describe("test the posible edge cases and scenarios", () => {
       .and("have.text", "Invalid email address");
   });
 
-  it("validate that users cannot add same coHost to the same event twice", () => {
+  it.only("validate that users cannot add same coHost to the same event twice", () => {
     cy.successfulLogin();
     cy.createEventSuccessfully();
     cy.get(sel.addCohostOption).click();
@@ -73,6 +73,53 @@ describe("test the posible edge cases and scenarios", () => {
     cy.get(sel.coverImageErrorResp)
       .should("be.visible")
       .and("have.text", "Cohost already exist in this event");
+  });
+  it("Host tries to invite a 6th co-host ", () => {
+    cy.successfulLogin();
+    cy.createEventSuccessfully();
+    cy.get(sel.addCohostOption).click();
+    cy.get(sel.cohostFirstName).type("Ola");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("ohlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.ContinueButton).click();
+    cy.wait(2000);
+    cy.get(sel.addNewCohost).click();
+    cy.get(sel.cohostFirstName).type("Ade");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("o.hlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.ContinueButton).click();
+    cy.wait(2000);
+    cy.get(sel.addNewCohost).click();
+    cy.get(sel.cohostFirstName).type("Ade");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("o.hlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.ContinueButton).click();
+    cy.wait(2000);
+    cy.get(sel.addNewCohost).click();
+    cy.get(sel.cohostFirstName).type("Ade");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("o.hlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.ContinueButton).click();
+    cy.wait(2000);
+    cy.get(sel.addNewCohost).click();
+    cy.get(sel.cohostFirstName).type("Ade");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("o.hlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.ContinueButton).click();
+    cy.wait(2000);
+    cy.get(sel.addNewCohost).click();
+    cy.get(sel.cohostFirstName).type("Ade");
+    cy.get(sel.cohostLastName).type("Aina");
+    cy.get(sel.cohostEmail).type("o.hlufehmii@gmail.com");
+    cy.get(sel.addCohost).click();
+    cy.get(sel.invalidLoginToastRespons)
+    .should("be.visible")
+    .and("have.text", "You can only add a maximum of 5 co-hosts for this event!");
   });
 
   it("validate that Host cannot invite themselves to be coHost", () => {
@@ -175,7 +222,7 @@ describe("test the posible edge cases and scenarios", () => {
     cy.verifyHostEmail();
   });
 
-  it.only("validate the email Host receives when a cohost declines invite", () => {
+  it("validate the email Host receives when a cohost declines invite", () => {
     cy.verifySecondHostEmail();
   });
 });
