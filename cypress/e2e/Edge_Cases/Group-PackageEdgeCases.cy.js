@@ -122,6 +122,8 @@ describe("validate the group and packages edge cases", () => {
     cy.get(sel.packageQuantity).type("15");
     // select pickup
     cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Small Box').click();
     cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
     cy.get(sel.noPackageImageErrorResp)
       .should("be.visible")
@@ -144,6 +146,8 @@ describe("validate the group and packages edge cases", () => {
     cy.get(sel.packageQuantity).type("15");
     // select pickup
     cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Small Box').click();
     cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
     cy.get(sel.noPackageImageErrorResp)
       .should("be.visible")
@@ -165,6 +169,8 @@ describe("validate the group and packages edge cases", () => {
     cy.get(sel.packageQuantity).type("15");
     // select pickup
     cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Small Box').click();
     cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
   });
 
@@ -180,6 +186,8 @@ describe("validate the group and packages edge cases", () => {
     cy.get(sel.packagePrice).type("5000");
     // select pickup
     cy.get(sel.pickupOption).click();
+    cy.get(sel.selectBoxDropdown).click();
+    cy.findByText('Small Box').click();
     cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
   });
 });
