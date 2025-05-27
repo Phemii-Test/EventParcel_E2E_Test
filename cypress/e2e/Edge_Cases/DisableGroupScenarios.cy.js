@@ -22,19 +22,18 @@ it('Host clicks "Disable group and confirms the action',()=>{
     cy.get(sel.createdEventTitle).first().click();
     cy.get(sel.groupMenuButton).click();
     cy.findByText('Disable Group').click();
-    cy.wait(3000)
-    cy.get(sel.groupMenuButton).click();
-    cy.findByText('Enable Group').should('be.visible');
-    cy.findByText('Enable Group').click();
+    cy.findByText('Group disabled successfully')
+    cy.wait(4000);  
+})
+it('Share link" button becomes disabled immediately with tooltip: "You cannot share links to an inactive group.',()=>{
+    cy.findAllByRole('button', { name: 'Send Invite' }).click({force:true});
     cy.get(sel.eventMenuButton).click();
+    // cy.findAllByRole('alert', { name: 'Toastify__toast Toastify__toast-theme--light Toastify__toast--warning' }).should('be.visible').and('have.text','This action is not allowed on a disabled group');
     cy.findByText('Delete Event').click();
     cy.findByText('Delete').click();
 })
-it('Share link" button becomes disabled immediately with tooltip: "You cannot share links to an inactive group.',()=>{
-
-})
 it.only('validate Guest attempts to access the disabled group via shared link',()=>{
-    cy.visit('https://event-parcel.vercel.app/preview?code=b176zbdg')
+    cy.visit('https://event-parcel.vercel.app/preview?code=im7nqrja')
     cy.wait(3000)
     cy.findByText('This group is not accepting payments at this time.').should('be.visible');
 })

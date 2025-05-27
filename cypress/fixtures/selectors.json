@@ -124,14 +124,16 @@
     "accountNumberField" : "input[id='dollarAccount.usAccountNumber']",
     "nairaAccountNumberField" : "input[id='nairaAccount.accountNumber']",
     "accountNameField" : "[id='dollarAccount.usAccountName']",
-    "selectBankField" : "div[role='combobox']",
-    "USbankOptions" : "[class='font-medium']",
+    "selectNigBankField" : "div[aria-controls='bank-list'] span",
+    "USbankOptions" : "div[aria-controls='us-bank-list'] span",
     "routingNumberField" : "[id='dollarAccount.routingNumber']",
     "paymentDeadlineHeader" : "#payment_deadlineHeader",
     "paymentDeadlineDescription" : "#payment_deadlineDesc",
     "paymentDeadlineDate" : "[id='paymentDate']",
     "accountNumberError" : "#accountNumberError",
     "routingNumberError" : "#routingNumberError",
+    "paymentDate" : "[class='react-datepicker__day react-datepicker__day--015 react-datepicker__day--weekend']",
+
 
 
     "deliveryHeader" : "#deliveryDetailsHeader",
@@ -174,9 +176,12 @@
     "totalInviteValue" : "#stat-count-1",
     "totalDeliveredValue" : "#stat-count-2",
     "PendingOrderValue" : "#stat-count-3",
-    "OrderTitle" : "[class='font-semibold text-sm text-[#111827]']"
+    "OrderTitle" : "[class='font-semibold text-sm text-[#111827]']",
+    "resetPasswordField" : "[type='password']",
+    "menuButton" : ".text-gray-600[stroke='currentColor']",
+    "grandTotal" : "[class='flex justify-between text-base font-semibold text-[#111827] border-t border-[#F1F2F4] pt-4']"
 
-
+    
 
 
 }

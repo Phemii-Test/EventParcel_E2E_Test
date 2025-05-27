@@ -26,7 +26,7 @@ Cypress.Commands.add("createEventSuccessfully", () => {
   cy.get(sel.eventTime).clear().type("03:45 PM");
   cy.get(sel.eventLocation).type("40, Bahamas Lane, Idi-roko");
   cy.get(sel.numberOfGroups).eq(1).type("4");
-  cy.get(sel.createEventButton).click();
+  cy.findByText('Continue').click();
 });
 
 Cypress.Commands.add("addNairaGroupSuccessfully", () => {
@@ -66,7 +66,9 @@ Cypress.Commands.add("itAddDollarAndNairaGroupSuccesfully", () => {
   cy.get(sel.packageQuantity).type("15");
   // select pickup
   cy.get(sel.pickupOption).click();
-  cy.get(sel.adhocAddPackageBtn).click();
+  cy.get(sel.selectBoxDropdown).click();
+  cy.findByText('Medium Box').click();
+  cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
 
   cy.get(sel.addNew).click();
   cy.get(sel.groupName).type("My Cool Guys");
@@ -92,7 +94,9 @@ Cypress.Commands.add("itAddDollarAndNairaGroupSuccesfully", () => {
   cy.get(sel.homeDeliveryOption).click();
   cy.get(sel.platformDeliveryOption).click();
   cy.wait(3000);
-  cy.get(sel.createPackageButton).click();
+  cy.get(sel.selectBoxDropdown).click();
+  cy.findByText('Medium Box').click();
+  cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
 });
 
 Cypress.Commands.add("addPickupPackageSuccessfully", () => {
@@ -115,9 +119,9 @@ Cypress.Commands.add("addDollarPaymentDetails", () => {
   // fill payout details.
   cy.get(sel.accountNumberField).type("4437266529");
   cy.get(sel.accountNameField).type("Olufemi Tester");
-  cy.get(sel.selectBankField).click();
+  cy.get(sel.USbankOptions).click();
   // select equitable bank
-  cy.get(sel.USbankOptions).eq(3).click();
+  cy.findByText('Equitable Bank').click();
   cy.get(sel.routingNumberField).type("304971932");
 
   // set payment deadline
@@ -129,7 +133,7 @@ Cypress.Commands.add("addDollarPaymentDetails", () => {
     .and("have.text", "Select the payment deadline date and time");
   cy.get(sel.paymentDeadlineDate).click();
   cy.get(sel.calendarForwardButton).click();
-  cy.get(sel.datePicker).click();
+  cy.get(sel.paymentDate).click();
   cy.get(sel.mainContinueButton).click();
 });
 
@@ -159,7 +163,6 @@ Cypress.Commands.add("addSelfDeliveryPackageSuccessfully", () => {
   // select pickup
   cy.get(sel.homeDeliveryOption).click();
   cy.get(sel.selfManagedDeliveryOption).click();
-  cy.get(sel.pickupOption).click();
     cy.get(sel.selectBoxDropdown).click();
     cy.findByText('Medium Box').click();
     cy.findAllByRole('button', { name: 'Create Package' }).last().click({force:true});
@@ -384,10 +387,10 @@ Cypress.Commands.add("addPickupDetails",()=>{
   cy.get(sel.deliveryHeader).should('be.visible').and ('have.text','Pickup Details');
     cy.get(sel.deliveryDescription).should('be.visible').and ('have.text','Add pickup contact details and when you want to start the delivery');
     cy.get(sel.contactName).type('Olayemi Ibijoke');
-    cy.get(sel.contactNumber).type('8140095998');
+    cy.findByPlaceholderText('Enter phone number').type('8140095998');
     cy.get(sel.pickupLocation).type('6, Jonathan Gimba Lane, Lagos.');
     cy.get(sel.deliveryDate).click();
     cy.get(sel.calendarForwardButton).click();
-    cy.get(sel.datePicker).click();
+    cy.get(sel.paymentDate).click();
     cy.get(sel.mainContinueButton).click();
 })

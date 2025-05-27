@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 const phoneNumber = faker.helpers.replaceSymbols("80########");
 let password = 'Hbon@1234'
 let sel
-const serverId='zbfbnq90'
+const serverId='tfs9ad1h'
   
   
        beforeEach(()=>{
@@ -302,7 +302,7 @@ Cypress.Commands.add('signUpWithOTP',()=>{
           cy.get(sel.emailField).type(TestEmail);
           cy.get(sel.passwordField).type(password);
           cy.get(sel.signupButton).click();
-          cy.wait(15000);
+          cy.wait(20000);
 
     
           cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
@@ -340,7 +340,7 @@ cy.get(sel.mobilenumField).type(phoneNumber);
 cy.get(sel.emailField).type(testEmail);
 cy.get(sel.passwordField).type(password);
 cy.get(sel.signupButton).click();
-cy.wait(15000);
+cy.wait(20000);
 
 
 cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
@@ -360,7 +360,7 @@ cy.mailosaurListMessages(Cypress.env('MAILOSAUR_SERVER_ID'), {
   cy.visit(link);   
 
   //  validate that email has been verified.
-  cy.get('[class="font-bold text-3xl"]').should('be.visible').and('have.text','Your email address has been verified');
+  cy.findByText('Your email address has been verified').should('be.visible');
   });
  })
 

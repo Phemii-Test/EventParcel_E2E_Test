@@ -14,7 +14,7 @@ let password = 'Hbon@1234'
 })
 it('validate the event creation name field with less than 5 characters',()=>{
  // login 
- cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+ cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
  cy.get(sel.signInPasswordField).type(password);
  cy.get(sel.loginButton).should('be.visible').click();
 
@@ -35,13 +35,13 @@ cy.get(sel.invalidErrorResponse).should('be.visible').and('have.text','Event nam
  cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
  cy.get(sel.numberOfGroups).eq(1).type('4')
 
- cy.get(sel.disabledContinueButton).should('be.disabled');
+ cy.findByText('Continue').should('be.disabled');
 
 })
 
 it('validate the event creation name field with more than 60 characters',()=>{
     // login 
-    cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+    cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
     cy.get(sel.signInPasswordField).type(password);
     cy.get(sel.loginButton).should('be.visible').click();
    
@@ -62,12 +62,12 @@ it('validate the event creation name field with more than 60 characters',()=>{
     cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
     cy.get(sel.numberOfGroups).eq(1).type('4')
    
-    cy.get(sel.disabledContinueButton).should('be.disabled');
+    cy.findByText('Continue').should('be.disabled');
    
    })
 it('validate that the event description is optional',()=>{
      // login 
-     cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+     cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
      cy.get(sel.signInPasswordField).type(password);
      cy.get(sel.loginButton).should('be.visible').click();
     
@@ -84,12 +84,12 @@ it('validate that the event description is optional',()=>{
      cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
      cy.get(sel.numberOfGroups).eq(1).type('4')
     
-     cy.get(sel.createEventButton).should('be.enabled');
+     cy.findByText('Continue').should('be.enabled');
     
 })
 it('validate that the event description field is does not take letters greater than 300 characters',()=>{
      // login 
-     cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+     cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
      cy.get(sel.signInPasswordField).type(password);
      cy.get(sel.loginButton).should('be.visible').click();
     
@@ -109,12 +109,12 @@ it('validate that the event description field is does not take letters greater t
      cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
      cy.get(sel.numberOfGroups).eq(1).type('4')
     
-     cy.get(sel.disabledContinueButton).should('be.disabled');
+     cy.findByText('Continue').should('be.disabled');
     
 })
 it('validate that date is compulsory',()=>{
      // login 
- cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+ cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
  cy.get(sel.signInPasswordField).type(password);
  cy.get(sel.loginButton).should('be.visible').click();
 
@@ -130,12 +130,12 @@ it('validate that date is compulsory',()=>{
  cy.get(sel.numberOfGroups).eq(1).type('4')
 //  Check the error display on time field required. 
 cy.get(sel.invalidErrorResponse).should('be.visible').and('have.text','This field is required.')
- cy.get(sel.disabledContinueButton).should('be.disabled');
+cy.findByText('Continue').should('be.disabled');
 
 })
 it('validate that the event time is compulsory',()=>{
      // login 
- cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+ cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
  cy.get(sel.signInPasswordField).type(password);
  cy.get(sel.loginButton).should('be.visible').click();
 
@@ -154,13 +154,13 @@ it('validate that the event time is compulsory',()=>{
  cy.get(sel.numberOfGroups).eq(1).type('4')
 //  Check the error display on time field required. 
 cy.get(sel.invalidErrorResponse).should('be.visible').and('have.text','This field is required.')
- cy.get(sel.disabledContinueButton).should('be.disabled');
+cy.findByText('Continue').should('be.disabled');
 
 })
 
 it('validate that event location is is required',()=>{
     // login 
-    cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+    cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
     cy.get(sel.signInPasswordField).type(password);
     cy.get(sel.loginButton).should('be.visible').click();
    
@@ -176,12 +176,12 @@ it('validate that event location is is required',()=>{
     cy.get(sel.datePicker).click();
     cy.get(sel.eventTime).clear().type('3:45 PM');
     cy.get(sel.numberOfGroups).eq(1).type('4').click();
-    cy.get(sel.disabledContinueButton).should('be.disabled');
+    cy.findByText('Continue').should('be.disabled');
    
 });
 it('validate that the event image is optional',()=>{
      // login 
-     cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+     cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
      cy.get(sel.signInPasswordField).type(password);
      cy.get(sel.loginButton).should('be.visible').click();
     
@@ -197,12 +197,12 @@ it('validate that the event image is optional',()=>{
      cy.get(sel.eventTime).clear().type('3:45 PM');
      cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
      cy.get(sel.numberOfGroups).eq(1).type('4')
-     cy.get(sel.createEventButton).should('be.enabled');
+     cy.findByText('Continue').should('be.enabled');
     
 })
 it('validate that the event image uploader does not take in file type other PNG and JPEG',()=>{
      // login 
-     cy.get(sel.signInEmailField).should('be.visible').type('phemii.teste.r@gmail.com');
+     cy.get(sel.signInEmailField).should('be.visible').type('phemii.tester@gmail.com');
      cy.get(sel.signInPasswordField).type(password);
      cy.get(sel.loginButton).should('be.visible').click();
     
@@ -219,7 +219,7 @@ it('validate that the event image uploader does not take in file type other PNG 
      cy.get(sel.eventTime).clear().type('3:45 PM');
      cy.get(sel.eventLocation).type('40, Bahamas Lane, Idi-roko');
      cy.get(sel.numberOfGroups).eq(1).type('4')
-     cy.get(sel.createEventButton).click();
+     cy.findByText('Continue').click();
      cy.wait(5000)
     //  Check the error toast saying the cover image must be PNG or JPEG. 
     cy.get(sel.coverImageErrorResp).should('be.visible').and('have.text','Cover image must be a valid image type (JPEG or PNG)')
