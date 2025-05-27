@@ -1,4 +1,4 @@
-describe('succesfully create a discount for event.',()=>{
+describe('End to end verification of the discount feature',()=>{
     let sel; 
     beforeEach(() => {
       cy.on('uncaught:exception', () => {
@@ -79,4 +79,6 @@ describe('succesfully create a discount for event.',()=>{
       cy.get(sel.createdDiscountTitle).first({force:true}).should('be.visible').and('have.text','General discount')
       cy.get(sel.createdDiscountAmount).first().should('be.visible').and('have.text','10%')
   });
+
+  
 })

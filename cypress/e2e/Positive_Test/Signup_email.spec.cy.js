@@ -46,7 +46,7 @@ describe("validate the valid sign up functionality", () => {
     cy.signUpWithEmailVerificationLink();
 });
 
-it.only('validate signup with used OTP',()=>{
+it('validate signup with used OTP',()=>{
   cy.signupWithUseddOTP();
 })
 });

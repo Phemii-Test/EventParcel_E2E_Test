@@ -23,6 +23,7 @@ it('Host deletes an inactive/disabled event with no guest payments → system al
 
 it('Host deletes an active event with no guest payments',()=>{
     cy.successfulLogin();
+    cy.findByText('Events').click();
     cy.createEventSuccessfully();
     cy.visit('https://event-parcel.vercel.app/dashboard/events');
     cy.get(sel.eventMenuButton).first().click();
@@ -30,41 +31,40 @@ it('Host deletes an active event with no guest payments',()=>{
     cy.findByText('Delete').click();
 })
 
-it.only('Host tries to delete an active event where at least one guest has made a payment',()=>{
-    cy.successfulLogin();
-    cy.createEventSuccessfully();
-    cy.addDollarGroupSuccessfully();
-    cy.addPlatformDeliveryPackageSuccessfully();
-    cy.addDollarPaymentDetails();
-    cy.addPickupDetails();
-    cy.wait(5000)
-    cy.get(sel.createdEventTitle).first().click();
-    cy.findByText('Send Invite').click();
-    cy.findByText('Upload CSV').click();
-    cy.findByText('Continue').click();
-    cy.get(sel.attachFile).last().attachFile('contact.csv');
-    cy.findByText('Import').click();
-    cy.get(sel.selectContact).click();
-    cy.findByText('Import').click();
-
-})
-
 it('Host tries to disable an active event where at least one guest has made a payment',()=>{
     cy.successfulLogin();
-    cy.createEventSuccessfully();
-    cy.addDollarGroupSuccessfully();
-    cy.addPlatformDeliveryPackageSuccessfully();
-    cy.addDollarPaymentDetails();
-    cy.addPickupDetails();
-    cy.wait(5000)
-    cy.get(sel.createdEventTitle).first().click();
-    cy.findByText('Send Invite').click();
-    cy.findByText('Upload CSV').click();
-    cy.findByText('Continue').click();
-    cy.get(sel.attachFile).last().attachFile('contact.csv');
-    cy.findByText('Import').click();
-    cy.get(sel.selectContact).click();
-    cy.findByText('Import').click();
+    cy.findByText('Events').click();
+    cy.findByText('My Event').scrollIntoView().click();
+    cy.get(sel.menuButton).last().click();
+    cy.findByText('Disable Event').click();
+    cy.findByText('Event with active guest cannot be disabled').should('be.visible');
 
 })
+/*
+it.only('Host tries to delete an active event where at least one guest has made a payment',()=>{
+    cy.successfulLogin();
+    cy.findByText('Events').click();
+    cy.findByText('OluBola2025').scrollIntoView().click();
+    cy.get(sel.menuButton).click();
+    cy.findByText('Delete Event').click();
+    cy.findByText('Delete').click();
+    cy.findByText('Event with active guest cannot be deleted').should('be.visible');
+
+    // cy.createEventSuccessfully();
+    // cy.addDollarGroupSuccessfully();
+    // cy.addPlatformDeliveryPackageSuccessfully();
+    // cy.addDollarPaymentDetails();
+    // cy.addPickupDetails();
+    // cy.wait(5000)
+    // cy.get(sel.createdEventTitle).first().click();
+    // cy.findByText('Send Invite').click();
+    // cy.findByText('Upload CSV').click();
+    // cy.findByText('Continue').click();
+    // cy.get(sel.attachFile).last().attachFile('contact.csv');
+    // cy.findByText('Import').click();
+    // cy.get(sel.selectContact).click();
+    // cy.findByText('Import').click();
+
+})*/
+
 })

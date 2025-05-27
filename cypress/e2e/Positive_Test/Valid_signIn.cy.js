@@ -36,14 +36,14 @@ describe('validate the sign in functionality',()=>{
         cy.get(sel.signInEmailField).type('phemii.tester@gmail.com');
         cy.get(sel.signInPasswordField).type(password);
         cy.get(sel.loginButton).should('be.visible').click();
-        cy.get(sel.loginToastResponse,{timeout:10000}).should('be.visible').and('have.text','Congratulations. You are in!')
+        cy.findByText('Dashboard').should('be.visible')
 
     })
     it('validate that the email field is not case sensitive',()=>{
         cy.get(sel.signInEmailField).type('phemII.tesTer@gmail.com');
         cy.get(sel.signInPasswordField).type(password);
         cy.get(sel.loginButton).should('be.visible').click();
-        cy.get(sel.loginToastResponse,{timeout:10000}).should('be.visible').and('have.text','Congratulations. You are in!')
+        cy.findByText('Dashboard').should('be.visible')
 
     })
 
